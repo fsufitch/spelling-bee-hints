@@ -74,5 +74,6 @@ spelling-bee-hints -r a -l bcenrt -w ./my_words.txt
 ## Notes
 
 - Output is printed one word per line.
-- Letter matching is exact; uppercase/lowercase behavior depends on your word list and provided letters.
+- Letter matching is case-insensitive by default, but case sensitivity can be enabled with `--case-sensitive`.
 - The included default dictionary is packaged in `spelling_bee_hints/words.txt`.
+- The default word list is a lot more extensive than typical Spelling Bee puzzles, so many results may be "invalid" words. If you have a better word list, you can use the `--words-file` option to specify it.
