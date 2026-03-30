@@ -81,6 +81,19 @@ You can use a custom dictionary file instead of the built-in one:
 spelling-bee-hints -r a -l bcenrt -w ./my_words.txt
 ```
 
+## Unit testing
+
+With the code repository checked out, run unit tests with:
+
+```txt
+$ uv run python -m unittest
+.........
+----------------------------------------------------------------------
+Ran 9 tests in 0.007s
+
+OK
+```
+
 ## Notes
 
 - Output is printed one word per line.
