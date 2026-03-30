@@ -43,8 +43,9 @@ class LetterTreeNode:
         return root
 
 
+# Default words sourced from https://github.com/dolph/dictionary
 DEFAULT_WORDS_FILE = importlib.resources.files("spelling_bee_hints").joinpath(
-    "words.txt"
+    "popular.txt"
 )
 
 

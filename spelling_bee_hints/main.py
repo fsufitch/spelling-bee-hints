@@ -50,6 +50,7 @@ def find_words(
     min_length: int,
 ) -> Iterable[str]:
     attempt_stack: list[tuple[str, LetterTreeNode]] = [("", root_node)]
+    letter_choices = set(letters + required)
 
     while attempt_stack:
         current_attempt, current_node = attempt_stack.pop()
@@ -61,7 +62,7 @@ def find_words(
         ):
             yield current_attempt
 
-        for letter in set(letters + required):
+        for letter in letter_choices:
             if letter in current_node.children:
                 attempt_stack.append(
                     (current_attempt + letter, current_node.children[letter])
