@@ -7,10 +7,8 @@ from pathlib import Path
 
 @dataclass
 class LetterTreeNode:
-    letter: str
     children: dict[str, LetterTreeNode]
     is_word: bool = False
-    parent: LetterTreeNode | None = None
 
     def traverse(self, letters: str) -> LetterTreeNode | None:
         if not letters:
@@ -31,15 +29,13 @@ class LetterTreeNode:
         next_letter = letters[0]
 
         if next_letter not in self.children:
-            self.children[next_letter] = LetterTreeNode(
-                letter=next_letter, children={}, parent=self
-            )
+            self.children[next_letter] = LetterTreeNode(children={})
 
         self.children[next_letter].add_word(letters[1:])
 
     @staticmethod
     def from_word_list(word_list: Iterable[str]) -> LetterTreeNode:
-        root = LetterTreeNode(letter="", children={})
+        root = LetterTreeNode(children={})
 
         for word in word_list:
             root.add_word(word)

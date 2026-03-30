@@ -49,24 +49,23 @@ def find_words(
     letters: str,
     min_length: int,
 ) -> Iterable[str]:
-    attempt_stack = [""]
+    attempt_stack: list[tuple[str, LetterTreeNode]] = [("", root_node)]
 
     while attempt_stack:
-        current_attempt = attempt_stack.pop()
-
-        node = root_node.traverse(current_attempt)
-        if node is None:
-            continue
+        current_attempt, current_node = attempt_stack.pop()
 
         if (
-            node.is_word
+            current_node.is_word
             and len(current_attempt) >= min_length
             and all(letter in current_attempt for letter in required)
         ):
             yield current_attempt
 
         for letter in set(letters + required):
-            attempt_stack.append(current_attempt + letter)
+            if letter in current_node.children:
+                attempt_stack.append(
+                    (current_attempt + letter, current_node.children[letter])
+                )
 
 
 if __name__ == "__main__":
