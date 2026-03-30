@@ -81,7 +81,7 @@ You can use a custom dictionary file instead of the built-in one:
 spelling-bee-hints -r a -l bcenrt -w ./my_words.txt
 ```
 
-## Unit testing
+## Testing
 
 With the code repository checked out, run unit tests with:
 
@@ -92,6 +92,18 @@ $ uv run python -m unittest
 Ran 9 tests in 0.007s
 
 OK
+```
+
+To check code formatting and style, run:
+
+```bash
+uv run flake8 spelling_bee_hints
+```
+
+To check static type annotations, run:
+
+```bash
+uv run basedpyright spelling_bee_hints
 ```
 
 ## Notes
