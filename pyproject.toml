@@ -1,6 +1,6 @@
 [project]
 name = "spelling-bee-hints"
-version = "1.0.0"
+version = "1.1.0"
 description = "Add your description here"
 readme = "README.md"
 requires-python = ">=3.14"
@@ -11,5 +11,20 @@ dependencies = [
 [project.scripts]
 spelling-bee-hints = "spelling_bee_hints.main:main"
 
+
+[dependency-groups]
+dev = [
+    "basedpyright>=1.38.4",
+    "black>=26.3.1",
+    "flake8>=7.3.0",
+    "flake8-pyproject>=1.2.4",
+]
+
+
 [tool.uv]
 package = true
+
+[tool.flake8]
+extend-ignore = [
+    "E501",  # line too long (handled by black)
+]
