@@ -75,5 +75,5 @@ spelling-bee-hints -r a -l bcenrt -w ./my_words.txt
 
 - Output is printed one word per line.
 - Letter matching is case-insensitive by default, but case sensitivity can be enabled with `--case-sensitive`.
-- The included default dictionary is packaged in `spelling_bee_hints/popular.txt`.
+- The included default dictionary is packaged in `spelling_bee_hints/ospd.txt`. It is the official Scrabble dictionary.
 - The default word list is sourced from <https://github.com/dolph/dictionary>, which is a collection of popular English words.
