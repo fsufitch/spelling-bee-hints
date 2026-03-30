@@ -53,19 +53,29 @@ The tool uses the union of `required + letters` as the full allowed character se
 
 ## Examples
 
-Find words that must include `e`, using the letters `a b c d f g` plus `e`:
+For an actual NYT Spelling Bee puzzle such as:
 
-```bash
-spelling-bee-hints -r e -l abcdfg
+![NYT Spelling Bee Example](./sample-puzzle.png)
+
+Usage looks like this:
+
+```txt
+$ spelling-bee-hints -r n -l eamkts
+manta
+mantas
+mantes
+mans
+manse
+...
 ```
 
-Require both `e` and `r` and increase minimum length:
+You can require both `e` and `r` and increase minimum length:
 
 ```bash
 spelling-bee-hints -r er -l abcdfg -m 6
 ```
 
-Use a custom dictionary file:
+You can use a custom dictionary file instead of the built-in one:
 
 ```bash
 spelling-bee-hints -r a -l bcenrt -w ./my_words.txt
