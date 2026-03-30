@@ -15,13 +15,28 @@ from spelling_bee_hints.word_tree import LetterTreeNode, read_words_file
     show_default=True,
 )
 @click.option("--words-file", "-w", help="Override the default words file")
+@click.option(
+    "--case-sensitive",
+    help=(
+        "Enable case sensitivity for the required and optional letters,"
+        + " and the word list"
+    ),
+    is_flag=True,
+    default=False,
+    show_default=True,
+)
 def main(
     required: str,
     letters: str,
     min_length: int,
     words_file: str | None,
+    case_sensitive: bool,
 ) -> None:
     words = read_words_file(words_file)
+    if not case_sensitive:
+        required = required.lower()
+        letters = letters.lower()
+        words = (word.lower() for word in words)
     tree = LetterTreeNode.from_word_list(words)
 
     for word in find_words(tree, required, letters, min_length):
